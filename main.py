@@ -27,6 +27,13 @@ def main(argv):
         data = (row.rstrip()).split('|', 1)
         data[1] = data[1].split('|') 
         
+        # P: Creation of a new node in the tree
+        # T: Adding phone information to the current node 
+        # A: Adding address information to the current node
+        # F: Adding a family memeber to the current node
+        #  - T: Adding phone information to the family menber 
+        #  - F: Adding address information to the family member
+
         if data[0] == 'P':
             personEntry = Entry(root, 'person')
             try:
@@ -60,10 +67,12 @@ def main(argv):
             while True:
                 prev = inputFile.tell()
                 row = inputFile.readline()
+                
                 if not row:
                     break
                 data = (row.rstrip()).split('|', 1)
                 data[1] = data[1].split('|')
+                
                 if data[0] == 'T':
                     phoneEntry = Entry(familyEntry.get_tree(), 'phone')
                     try:
@@ -83,9 +92,10 @@ def main(argv):
                     inputFile.seek(prev)
                     break
 
-    xmlstring = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
+    xmlstring = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ") # Make output pretty
     with open(outputFilePath, 'w') as outputFile:
         outputFile.write(xmlstring)
+        outputFile.flush()
     inputFile.close()
 
 if __name__ == "__main__":
