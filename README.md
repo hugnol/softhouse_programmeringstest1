@@ -1,3 +1,3 @@
 # softhouse_programmeringstest1
 
-python3 main.py <inputfilepath> <outputfilepath>
+python3 main.py inputfilepath.txt <outputfilepath.xml
