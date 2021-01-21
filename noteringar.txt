@@ -1,0 +1,13 @@
+Delimiter: |
+Struktur:
+    P: Person Förnamn|Efternamn
+        T(Telefon):  mobil|fastnätsnummer
+        A(Address):  gata|stad|postnummer
+        F(Familj kan vara en eller fler) :  namn|födelseår
+            T(Telefon): mobil|fastnätsnummer
+            A(Address): gata|stad|postnummer
+
+
+
+P introducerar alltid en ny person
+  - Varje person kan ha en eller fler familjemedlemmar
